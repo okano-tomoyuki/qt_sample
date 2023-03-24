@@ -12,13 +12,11 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow();
     ~MainWindow();
 
 private slots:
     void handleSelectionChanged(int index);
 
-private:
-    Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
