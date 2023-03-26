@@ -1,11 +1,10 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAIN_WINDOW_H
+#define MAIN_WINDOW_H
 
 #include <QMainWindow>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+namespace HumanMachineInterface
+{
 
 class MainWindow : public QMainWindow
 {
@@ -19,4 +18,6 @@ private slots:
     void handleSelectionChanged(int index);
 
 };
-#endif // MAINWINDOW_H
+
+}
+#endif

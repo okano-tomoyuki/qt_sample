@@ -1,6 +1,8 @@
-#include "mainwindow.hpp"
+#include "MainWindow.hpp"
 
 #include <QApplication>
+
+using namespace HumanMachineInterface;
 
 int main(int argc, char *argv[])
 {
