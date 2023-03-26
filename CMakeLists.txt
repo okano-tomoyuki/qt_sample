@@ -19,12 +19,10 @@ set(AUTOMOC_PATH_PREFIX ON)
 
 file(GLOB_RECURSE Header include/*.hpp)
 file(GLOB_RECURSE Source src/*.cpp)
-file(GLOB_RECURSE View view/*.ui)
 
 set(PROJECT_SOURCES
         ${Header}
         ${Source}
-        ${View}
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
