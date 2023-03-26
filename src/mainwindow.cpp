@@ -17,7 +17,6 @@ MainWindow::MainWindow()
     QPalette pal = palette();
     QPalette blk = palette();
     pal.setColor(QPalette::Window, Qt::white);
-    blk.setColor(QPalette::Window, Qt::gray);
     this->setWindowTitle("Sample");
     this->setAutoFillBackground(true);
     this->setPalette(pal);
@@ -26,21 +25,15 @@ MainWindow::MainWindow()
     QSplitter* horizontalSplitter = new QSplitter(Qt::Horizontal, this);
     QSplitter* verticalRightSplitter = new QSplitter(Qt::Vertical, this);
 
-    QWidget* leftWidget = new QWidget(this);
+    SideMenu* leftWidget = new SideMenu(this);
     QWidget* centralWidget = new QWidget(this);
     QWidget* rightTopWidget = new QWidget(this);
     rightTopWidget->setObjectName("RightTopWidget");
     QWidget* rightBottomWidget = new QWidget(this);
 
-    leftWidget->setStyleSheet(
-        "background-color:black"
-    );
     centralWidget->setStyleSheet(
         "background-color:black"
     );
-    // rightTopWidget->setStyleSheet(
-    //     "background-color:black"
-    // );
     rightBottomWidget->setStyleSheet(
         "background-color:black"
     );
@@ -48,14 +41,14 @@ MainWindow::MainWindow()
 
     verticalRightSplitter->addWidget(rightTopWidget);
     verticalRightSplitter->addWidget(rightBottomWidget);
-    verticalRightSplitter->setSizes({1,1});
 
     horizontalSplitter->addWidget(leftWidget);
     horizontalSplitter->addWidget(centralWidget);
     horizontalSplitter->addWidget(verticalRightSplitter);
-    horizontalSplitter->setSizes({1,6,3});
 
     QVBoxLayout* vBoxlay = new QVBoxLayout(rightTopWidget);
+    vBoxlay->setContentsMargins(0,0,0,0);
+
     QLabel* title = new QLabel("XXXXX",rightTopWidget);
     title->setObjectName("Title");
     QPushButton* okButton = new QPushButton("OK", rightTopWidget);
@@ -66,7 +59,6 @@ MainWindow::MainWindow()
     okCancel->addWidget(cancelButton);
     okCancel->addStretch();
 
-    vBoxlay->setContentsMargins(0,0,0,0);
     vBoxlay->addWidget(title);
     vBoxlay->addLayout(okCancel);
     vBoxlay->addStretch();
@@ -78,20 +70,18 @@ MainWindow::MainWindow()
         "QPushButton:pressed {background-color:white;}"
     );
 
+    
+    horizontalSplitter->setStretchFactor(0,1);
+    horizontalSplitter->setStretchFactor(1,6);
+    horizontalSplitter->setStretchFactor(2,2);
+    verticalRightSplitter->setStretchFactor(0,1);
+    verticalRightSplitter->setStretchFactor(1,1);
+
     this->setCentralWidget(horizontalSplitter);
 
-    // QComboBox *comboBox = new QComboBox(this);
-    // comboBox->addItem("First");
-    // comboBox->addItem("Second");
-    // comboBox->addItem("Third");
-    // comboBox->move(10,130);
-    // connect(comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(handleSelectionChanged(int)));
 
-    // QHBoxLayout *mainLay = new QHBoxLayout(this);
-    // mainLay->addWidget(hSplitter);
-
-    bool debugFlag = false;
-    if(debugFlag){
+    bool releaseFlag = false;
+    if(releaseFlag){
         this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
     }
 
