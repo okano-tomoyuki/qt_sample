@@ -18,7 +18,7 @@ SideMenuWidget::SideMenuWidget(QWidget* parent)
     QVBoxLayout* vBoxlay = new QVBoxLayout(this);
     vBoxlay->setContentsMargins(0,0,0,0);
 
-    QLabel* title = new QLabel("XXXXX",this);
+    QLabel* title = new QLabel("Menu",this);
     title->setObjectName("Title");
 
     QPushButton *button = new QPushButton(QApplication::translate("childwidget", "Close"), this);
@@ -28,14 +28,24 @@ SideMenuWidget::SideMenuWidget(QWidget* parent)
     comboBox->addItem("First");
     comboBox->addItem("Second");
     comboBox->addItem("Third");
-    connect(comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(handleSelectionChanged(int)));   
+    connect(comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(handleSelectionChanged(int)));
+
+    QLabel* shipVelocityLabel = new QLabel("Ship Velocity", this);
+    QLabel* shipDirectionLabel = new QLabel("Ship Direction", this);
+    QLabel* windVelocityLabel = new QLabel("Wind Velocity", this);
+    QLabel* windDirectionLabel = new QLabel("Wind Direction", this);
 
     vBoxlay->addWidget(title);
     vBoxlay->addWidget(button);
     vBoxlay->addWidget(comboBox);
+    vBoxlay->addWidget(shipVelocityLabel);
+    vBoxlay->addWidget(shipDirectionLabel);
+    vBoxlay->addWidget(windVelocityLabel);
+    vBoxlay->addWidget(windDirectionLabel);
     vBoxlay->addStretch(); 
 
     this->setStyleSheet(
+        "QLabel {color:white;font-size:18px;}"
         "QLabel#Title {background-color:darkblue;color:white;font-size:36px;padding:4px;}"
         "QPushButton {margin:5px;color:white;background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 cyan, stop:1 blue);border-radius:5px;font-size:24px;width:100px;height:30px;padding:2px;}"
         "QPushButton:hover {color:black;background-color:white;}"

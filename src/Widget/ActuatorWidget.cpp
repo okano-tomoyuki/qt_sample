@@ -15,7 +15,7 @@ ActuatorWidget::ActuatorWidget(QWidget* parent)
     QVBoxLayout* vBoxlay = new QVBoxLayout(this);
     vBoxlay->setContentsMargins(0,0,0,0);
 
-    QLabel* title = new QLabel("XXXXX",this);
+    QLabel* title = new QLabel("Actuator Info",this);
     title->setObjectName("Title");
     QPushButton* okButton = new QPushButton("OK", this);
     QPushButton* cancelButton = new QPushButton("Cancel", this);
