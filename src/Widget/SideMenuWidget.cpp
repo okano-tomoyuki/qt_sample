@@ -1,4 +1,4 @@
-#include "SideMenu.hpp"
+#include "Widget/SideMenuWidget.hpp"
 #include <QWidget>
 #include <QPushButton>
 #include <QApplication>
@@ -8,7 +8,7 @@
 
 using namespace HumanMachineInterface;
 
-SideMenu::SideMenu(QWidget* parent)
+SideMenuWidget::SideMenuWidget(QWidget* parent)
 {
     QPalette pal = palette();
     pal.setColor(QPalette::Window, Qt::black);
@@ -46,7 +46,7 @@ SideMenu::SideMenu(QWidget* parent)
 }
 
 
-SideMenu::~SideMenu()
+SideMenuWidget::~SideMenuWidget()
 {
 
 }
