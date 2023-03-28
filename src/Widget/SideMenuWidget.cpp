@@ -47,7 +47,7 @@ SideMenuWidget::SideMenuWidget(QWidget* parent)
     this->setStyleSheet(
         "QLabel {color:white;font-size:18px;}"
         "QLabel#Title {background-color:darkblue;color:white;font-size:36px;padding:4px;}"
-        "QPushButton {margin:5px;color:white;background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 cyan, stop:1 blue);border-radius:5px;font-size:24px;width:100px;height:30px;padding:2px;}"
+        "QPushButton {margin:5px;color:white;background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 white, stop:1 gray);border-radius:5px;font-size:24px;width:100px;height:30px;padding:2px;}"
         "QPushButton:hover {color:black;background-color:white;}"
         "QPushButton:pressed {background-color:white;}"
         "QComboBox {margin:5px;color:black;border-radius:5px;font-size:18px;height:24px;padding:2px;}"
