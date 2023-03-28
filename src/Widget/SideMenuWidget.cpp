@@ -5,6 +5,7 @@
 #include <QBoxLayout>
 #include <QLabel>
 #include <QComboBox>
+#include <QGroupBox>
 
 using namespace HumanMachineInterface;
 
@@ -30,6 +31,9 @@ SideMenuWidget::SideMenuWidget(QWidget* parent)
     comboBox->addItem("Third");
     connect(comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(handleSelectionChanged(int)));
 
+    QGroupBox* groupBox = new QGroupBox("Own Ship Info");
+
+    QIcon shipVelocityInfo = QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation);
     QLabel* shipVelocityLabel = new QLabel("Ship Velocity", this);
     QLabel* shipDirectionLabel = new QLabel("Ship Direction", this);
     QLabel* windVelocityLabel = new QLabel("Wind Velocity", this);
@@ -45,12 +49,44 @@ SideMenuWidget::SideMenuWidget(QWidget* parent)
     vBoxlay->addStretch(); 
 
     this->setStyleSheet(
-        "QLabel {color:white;font-size:18px;}"
-        "QLabel#Title {background-color:darkblue;color:white;font-size:36px;padding:4px;}"
-        "QPushButton {margin:5px;color:white;background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 white, stop:1 gray);border-radius:5px;font-size:24px;width:100px;height:30px;padding:2px;}"
-        "QPushButton:hover {color:black;background-color:white;}"
-        "QPushButton:pressed {background-color:white;}"
-        "QComboBox {margin:5px;color:black;border-radius:5px;font-size:18px;height:24px;padding:2px;}"
+        "QLabel {"
+            "color:white;"
+            "font-size:18px;"
+        "}"
+        "QLabel#Title {"
+            "background-color:darkblue;"
+            "color:white;"
+            "font-size:36px;"
+            "padding:4px;"
+        "}"
+        "QPushButton {"
+            "margin:5px;"
+            "border-width:2px;"
+            "border-color:darkblue;"
+            "border-style:solid;"
+            "color:white;"
+            "background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 cyan, stop:1 blue);"
+            "border-radius:10px;"
+            "font-size:24px;"
+            "width:100px;"
+            "height:30px;"
+            "padding:2px;"
+        "}"
+        "QPushButton:hover {"
+            "color:black;"
+            "background-color:white;"
+        "}"
+        "QPushButton:pressed {"
+            "background-color:white;"
+        "}"
+        "QComboBox {"
+            "margin:5px;"
+            "color:black;"
+            "border-radius:5px;"
+            "font-size:18px;"
+            "height:24px;"
+            "padding:2px;"
+        "}"
     );
 
 }

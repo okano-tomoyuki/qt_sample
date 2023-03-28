@@ -29,10 +29,29 @@ ActuatorWidget::ActuatorWidget(QWidget* parent)
     vBoxlay->addLayout(okCancel);
     vBoxlay->addStretch();
     this->setStyleSheet(
-        "QLabel#Title {background-color:darkblue;color:white;font-size:36px;padding:4px;}"
-        "QPushButton {margin:5px;color:white;background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 cyan, stop:1 blue);border-radius:5px;font-size:24px;width:100px;height:30px;padding:2px;}"
-        "QPushButton:hover {color:black;background-color:white;}"
-        "QPushButton:pressed {background-color:white;}"
+        "QLabel#Title {"
+            "background-color:darkblue;"
+            "color:white;"
+            "font-size:36px;"
+            "padding:4px;"
+        "}"
+        "QPushButton {"
+            "margin:5px;"
+            "color:white;"
+            "background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 cyan, stop:1 blue);"
+            "border-radius:5px;"
+            "font-size:24px;"
+            "width:100px;"
+            "height:30px;"
+            "padding:2px;"
+        "}"
+        "QPushButton:hover {"
+            "color:black;"
+            "background-color:white;"
+        "}"
+        "QPushButton:pressed {"
+            "background-color:white;"
+        "}"
     );
 }
 
