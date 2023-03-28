@@ -1,6 +1,5 @@
 build/*
 debug/*
 .vscode/*
-CMakeLists.txt
 CMakeLists.txt.user
 release/*

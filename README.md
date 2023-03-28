@@ -68,6 +68,41 @@ https://code.visualstudio.com/Download
 |CMake Tools|ms-vscode.cmake-tools||
 |Doxygen Document|cschlosser.doxdocgen||
 
+次に、MSYS2をVSCodeのShellに登録し、コンパイラへのパスを環境変数で設定しておく。
+Ctrl + Shift + P を押下し、検索ボックスにsetting.jsonと入力し、
+Open User Settingを選択する。
+
+setting.jsonファイルの編集画面から以下のように編集する。
+``` json
+{
+    "terminal.integrated.tabStopWidth": 4,
+    "terminal.integrated.profiles.windows":{
+        "MSYS2 Bash": {
+            "path": [
+                "msys64/usr/bin/bashへのパス"
+            ],
+            "args": [
+                "--login"
+            ],
+            "env": {
+                "MSYSTEM": "MINGW64",
+                "CHERE_INVOKING": "1",
+                "http_proxy": "hogehoge",
+                "https_proxy": "hogehoge",
+                "LOCAL_COMPILER": "g++",
+                "LOCAL_COMPILER_PATH": "msys64/mingw64/bin/g++へのパス"
+            },
+            "overrideName": true,
+            "color": "terminal.ansiCyan"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "MSYS2 Bash",
+    "cmake.configureOnOpen": true,
+    "C_Cpp.default.compilerPath": "msys64/mingw64/bin/g++へのパス"
+}
+```
+
+
 ### 2-3.Qtセットアップ
 
 下記リンクを参考に必要なものをpacmanでインストールする。
