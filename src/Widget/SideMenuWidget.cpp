@@ -26,9 +26,10 @@ SideMenuWidget::SideMenuWidget(QWidget* parent)
     QObject::connect(button, SIGNAL(clicked(bool)), parent, SLOT(close()));
 
     QComboBox *comboBox = new QComboBox(this);
-    comboBox->addItem("First");
-    comboBox->addItem("Second");
-    comboBox->addItem("Third");
+    comboBox->addItem("Unberthing");
+    comboBox->addItem("Leaving");
+    comboBox->addItem("Approaching");
+    comboBox->addItem("Berthing");
     connect(comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(handleSelectionChanged(int)));
 
     QGroupBox* groupBox = new QGroupBox("Own Ship Info");

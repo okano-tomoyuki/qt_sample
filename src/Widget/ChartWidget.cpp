@@ -1,16 +1,15 @@
 #include "Widget/ChartWidget.hpp"
+#include "Widget/SamplePainter.hpp"
 #include <QBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QPainter>
+#include <QRect>
 
 using namespace HumanMachineInterface;
 
 ChartWidget::ChartWidget(QWidget* parent)
 {
-    QPalette pal = palette();
-    pal.setColor(QPalette::Window, Qt::black);
-    this->setAutoFillBackground(true);
-    this->setPalette(pal);
 
     QVBoxLayout* vBoxlay = new QVBoxLayout(this);
     vBoxlay->setContentsMargins(0,0,0,0);
@@ -18,14 +17,28 @@ ChartWidget::ChartWidget(QWidget* parent)
     QLabel* title = new QLabel("Chart",this);
     title->setObjectName("Title");
 
+    QWidget* paint = new SamplePainter(this);
+
     vBoxlay->addWidget(title);
+    vBoxlay->addWidget(paint);
     vBoxlay->addStretch();
+
+
     this->setStyleSheet(
         "QLabel#Title {"
             "background-color:darkblue;"
             "color:white;"
             "font-size:36px;"
             "padding:4px;"
+        "}"
+        "QTableWidget {"
+            "background-color:white;"
+            "margin:20px;"
+        "}"
+        "QHeaderView::section {"
+            "background-color:darkBlue;"
+            "color:white;"
+            "font-size:18px;"
         "}"
         "QPushButton {"
             "margin:5px;"
@@ -45,6 +58,9 @@ ChartWidget::ChartWidget(QWidget* parent)
             "background-color:white;"
         "}"
     );
+
+
+    this->show();
 }
 
 ChartWidget::~ChartWidget()

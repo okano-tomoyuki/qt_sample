@@ -21,12 +21,15 @@ AlertLogWidget::AlertLogWidget(QWidget* parent)
     title->setObjectName("Title");
 
     QVBoxLayout* vTableBox = new QVBoxLayout(this);
-    QTableWidget* table = new QTableWidget(10,3,this);
+    QTableWidget* table = new QTableWidget(10,4,this);
     table->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    table->setHorizontalHeaderLabels({"Code","Description","Alert date and time"});
+    table->setHorizontalHeaderLabels({"","Code","Description","Alert date and time"});
     table->verticalHeader()->hide();
     table->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    
+    QPushButton* click = new QPushButton("Detail");
+    table->setCellWidget(0,0,click);
 
     vBoxlay->addWidget(title);
     vBoxlay->addWidget(table);
@@ -52,8 +55,8 @@ AlertLogWidget::AlertLogWidget(QWidget* parent)
             "color:white;"
             "background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 cyan, stop:1 blue);"
             "border-radius:5px;"
-            "font-size:24px;"
-            "width:100px;"
+            "font-size:14px;"
+            "width:20px;"
             "height:30px;"
             "padding:2px;"
         "}"

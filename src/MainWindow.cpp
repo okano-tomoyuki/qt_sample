@@ -2,6 +2,7 @@
 #include "Widget/SideMenuWidget.hpp"
 #include "Widget/ActuatorWidget.hpp"
 #include "Widget/AlertLogWidget.hpp"
+#include "Widget/SamplePainter.hpp"
 #include "Widget/ChartWidget.hpp"
 
 #include <QLabel>
@@ -27,7 +28,7 @@ MainWindow::MainWindow()
     QSplitter* verticalRightSplitter = new QSplitter(Qt::Vertical, this);
 
     QWidget* leftWidget = new SideMenuWidget(this);
-    QWidget* centralWidget = new ChartWidget(this);
+    QWidget* centralWidget = new SamplePainter(this);
     QWidget* rightTopWidget = new ActuatorWidget(this);
     QWidget* rightBottomWidget = new AlertLogWidget(this);
 

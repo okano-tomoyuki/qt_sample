@@ -79,7 +79,7 @@ setting.jsonファイルの編集画面から以下のように編集する。
     "terminal.integrated.profiles.windows":{
         "MSYS2 Bash": {
             "path": [
-                "msys64/usr/bin/bashへのパス"
+                "/msys64/usr/bin/bashへのパス"
             ],
             "args": [
                 "--login"
@@ -90,7 +90,7 @@ setting.jsonファイルの編集画面から以下のように編集する。
                 "http_proxy": "hogehoge",
                 "https_proxy": "hogehoge",
                 "LOCAL_COMPILER": "g++",
-                "LOCAL_COMPILER_PATH": "msys64/mingw64/bin/g++へのパス"
+                "LOCAL_COMPILER_PATH": "/msys64/mingw64/bin/g++へのパス"
             },
             "overrideName": true,
             "color": "terminal.ansiCyan"
@@ -98,7 +98,7 @@ setting.jsonファイルの編集画面から以下のように編集する。
     },
     "terminal.integrated.defaultProfile.windows": "MSYS2 Bash",
     "cmake.configureOnOpen": true,
-    "C_Cpp.default.compilerPath": "msys64/mingw64/bin/g++へのパス"
+    "C_Cpp.default.compilerPath": "/msys64/mingw64/bin/g++へのパス"
 }
 ```
 
