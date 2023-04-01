@@ -1,19 +1,20 @@
 /**
- * @file SideMenuWidget.hpp
- * @author okano tomoyuki (okano.development@gmail.com)
- * @brief サイドメニュー用ウィジェット
+ * @file SideMenu.hpp
+ * @author your name (you@domain.com)
+ * @brief 
  * @version 0.1
- * @date 2023-03-28
+ * @date 2023-04-01
  * 
  * @copyright Copyright (c) 2023
  * 
  */
+
 #ifndef SIDE_MENU_WIDGET_HPP
-#define SIDE_MENU_WIDGET_HPP
+#define SIDE_MENUs_WIDGET_HPP
 
 #include <QWidget>
 
-namespace HumanMachineInterface
+namespace HMI
 {
 
 class SideMenuWidget : public QWidget

@@ -4,7 +4,7 @@
 #include <QPainter>
 #include <QPen>
 
-using namespace HumanMachineInterface;
+using namespace HMI;
 
 SamplePainter::SamplePainter(QWidget* parent)
 {

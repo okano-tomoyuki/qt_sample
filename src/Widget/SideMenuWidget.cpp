@@ -1,4 +1,4 @@
-#include "Widget/SideMenuWidget.hpp"
+#include "Widget/SideMenu.hpp"
 #include <QWidget>
 #include <QPushButton>
 #include <QApplication>
@@ -7,7 +7,7 @@
 #include <QComboBox>
 #include <QGroupBox>
 
-using namespace HumanMachineInterface;
+using namespace HMI;
 
 SideMenuWidget::SideMenuWidget(QWidget* parent)
 {

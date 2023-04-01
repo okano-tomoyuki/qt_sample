@@ -1,4 +1,4 @@
-#include "Widget/ChartWidget.hpp"
+#include "Widget/NavChart.hpp"
 #include "Widget/SamplePainter.hpp"
 #include <QBoxLayout>
 #include <QPushButton>
@@ -6,9 +6,9 @@
 #include <QPainter>
 #include <QRect>
 
-using namespace HumanMachineInterface;
+using namespace HMI;
 
-ChartWidget::ChartWidget(QWidget* parent)
+NavChartWidget::NavChartWidget(QWidget* parent)
 {
 
     QVBoxLayout* vBoxlay = new QVBoxLayout(this);
@@ -63,7 +63,7 @@ ChartWidget::ChartWidget(QWidget* parent)
     this->show();
 }
 
-ChartWidget::~ChartWidget()
+NavChartWidget::~NavChartWidget()
 {
 
 }

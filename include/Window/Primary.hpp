@@ -1,28 +1,29 @@
 /**
- * @file MainWindow.hpp
- * @author okano tomoyuki (okano.development@gmail.com)
- * @brief メインウィンドウ
+ * @file Primary.hpp
+ * @author your name (you@domain.com)
+ * @brief 
  * @version 0.1
- * @date 2023-03-28
+ * @date 2023-04-01
  * 
  * @copyright Copyright (c) 2023
  * 
  */
-#ifndef MAIN_WINDOW_H
-#define MAIN_WINDOW_H
+
+#ifndef PRIMARY_WINDOW_HPP
+#define PRIMARY_WINDOW_HPP
 
 #include <QMainWindow>
 
-namespace HumanMachineInterface
+namespace HMI
 {
 
-class MainWindow : public QMainWindow
+class PrimaryWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow();
-    ~MainWindow();
+    PrimaryWindow();
+    ~PrimaryWindow();
 
 private slots:
 

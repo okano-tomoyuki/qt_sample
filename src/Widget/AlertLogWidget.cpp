@@ -1,11 +1,11 @@
-#include "Widget/AlertLogWidget.hpp"
+#include "Widget/AlertLog.hpp"
 #include <QBoxLayout>
 #include <QPushButton>
 #include <QTableWidget>
 #include <QHeaderView>
 #include <QLabel>
 
-using namespace HumanMachineInterface;
+using namespace HMI;
 
 AlertLogWidget::AlertLogWidget(QWidget* parent)
 {

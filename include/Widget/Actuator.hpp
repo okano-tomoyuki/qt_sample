@@ -1,9 +1,9 @@
 /**
- * @file ActuatorWidget.hpp
- * @author okano tomoyuki (okano.development@gmail.com)
- * @brief アクチュエーター情報表示用ウィジェット
+ * @file Actuator.hpp
+ * @author your name (you@domain.com)
+ * @brief 
  * @version 0.1
- * @date 2023-03-28
+ * @date 2023-04-01
  * 
  * @copyright Copyright (c) 2023
  * 
@@ -14,7 +14,7 @@
 
 #include <QWidget>
 
-namespace HumanMachineInterface
+namespace HMI
 {
 
 class ActuatorWidget : public QWidget

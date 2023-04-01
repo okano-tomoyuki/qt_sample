@@ -1,5 +1,5 @@
 /**
- * @file ChartDrawingHelper.hpp
+ * @file ChartDrawing.hpp
  * @author okano tomoyuki (okano.development@gmail.com)
  * @brief 
  * @version 0.1
@@ -8,8 +8,9 @@
  * @copyright Copyright (c) 2023
  * 
  */
-#ifndef CHART_DRAWING_HELPER
-#define CHART_DRAWING_HELPER
+
+#ifndef CHART_DRAWING_HELPER_HPP
+#define CHART_DRAWING_HELPER_HPP
 
 #include <QWidget>
 #include <QPainter>
@@ -18,7 +19,7 @@
 #include <QFont>
 #include <QPen>
 
-namespace HumanMachineInterface
+namespace HMI
 {
 
 class ChartDrawingHelper

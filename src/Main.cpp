@@ -1,13 +1,12 @@
-#include "MainWindow.hpp"
+#include "Window/Primary.hpp"
 
 #include <QApplication>
 
-using namespace HumanMachineInterface;
+using namespace HMI;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    // w.show();
+    PrimaryWindow w;
     return a.exec();
 }

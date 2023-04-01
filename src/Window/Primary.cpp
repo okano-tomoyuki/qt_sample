@@ -1,9 +1,9 @@
-#include "MainWindow.hpp"
-#include "Widget/SideMenuWidget.hpp"
-#include "Widget/ActuatorWidget.hpp"
-#include "Widget/AlertLogWidget.hpp"
+#include "Window/Primary.hpp"
+#include "Widget/SideMenu.hpp"
+#include "Widget/Actuator.hpp"
+#include "Widget/AlertLog.hpp"
 #include "Widget/SamplePainter.hpp"
-#include "Widget/ChartWidget.hpp"
+#include "Widget/NavChart.hpp"
 
 #include <QLabel>
 #include <QPushButton>
@@ -12,9 +12,9 @@
 #include <QLayout>
 #include <QMenu>
 
-using namespace HumanMachineInterface;
+using namespace HMI;
 
-MainWindow::MainWindow()
+PrimaryWindow::PrimaryWindow()
 {
     QPalette pal = palette();
     QPalette blk = palette();
@@ -56,12 +56,12 @@ MainWindow::MainWindow()
     this->show();
 }
 
-void MainWindow::handleSelectionChanged(int index)
+void PrimaryWindow::handleSelectionChanged(int index)
 {
     qInfo() << "Item:" << index << "was selected.";
 }
 
-MainWindow::~MainWindow()
+PrimaryWindow::~PrimaryWindow()
 {
 }
 

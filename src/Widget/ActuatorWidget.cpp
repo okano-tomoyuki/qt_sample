@@ -1,9 +1,9 @@
-#include "Widget/ActuatorWidget.hpp"
+#include "Widget/Actuator.hpp"
 #include <QBoxLayout>
 #include <QPushButton>
 #include <QLabel>
 
-using namespace HumanMachineInterface;
+using namespace HMI;
 
 ActuatorWidget::ActuatorWidget(QWidget* parent)
 {

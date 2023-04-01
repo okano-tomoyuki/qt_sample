@@ -1,8 +1,8 @@
-#include "Helper/ChartDrawingHelper.hpp"
+#include "Helper/ChartDrawing.hpp"
 #include <QPainter>
 #include <QPaintEvent>
 
-using namespace HumanMachineInterface;
+using namespace HMI;
 
 ChartDrawingHelper::ChartDrawingHelper()
 {
