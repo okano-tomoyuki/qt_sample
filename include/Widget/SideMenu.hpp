@@ -10,7 +10,7 @@
  */
 
 #ifndef SIDE_MENU_WIDGET_HPP
-#define SIDE_MENUs_WIDGET_HPP
+#define SIDE_MENU_WIDGET_HPP
 
 #include <QWidget>
 
@@ -24,6 +24,9 @@ class SideMenuWidget : public QWidget
 public:
     SideMenuWidget(QWidget* parent);
     ~SideMenuWidget();
+
+public slots:
+    void openSemiFallbackDialog();
 };
 
 }

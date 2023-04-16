@@ -59,7 +59,6 @@ NavChartWidget::NavChartWidget(QWidget* parent)
         "}"
     );
 
-
     this->show();
 }
 

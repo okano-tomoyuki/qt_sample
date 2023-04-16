@@ -11,25 +11,26 @@
 #include <QSplitter>
 #include <QLayout>
 #include <QMenu>
+#include <QApplication>
 
 using namespace HMI;
 
 PrimaryWindow::PrimaryWindow()
 {
-    QPalette pal = palette();
-    QPalette blk = palette();
-    pal.setColor(QPalette::Window, Qt::white);
     this->setWindowTitle("Sample");
     this->setAutoFillBackground(true);
-    this->setPalette(pal);
     this->setWindowState(windowState() ^ Qt::WindowMaximized);
+    QIcon icon = QApplication::style()->standardIcon(QStyle::SP_DesktopIcon);
+    this->setWindowIcon(icon);
 
     QSplitter* horizontalSplitter = new QSplitter(Qt::Horizontal, this);
     QSplitter* verticalRightSplitter = new QSplitter(Qt::Vertical, this);
 
     QWidget* leftWidget = new SideMenuWidget(this);
+    leftWidget->setMinimumWidth(250);
     QWidget* centralWidget = new SamplePainter(this);
     QWidget* rightTopWidget = new ActuatorWidget(this);
+    rightTopWidget->setMinimumWidth(450);
     QWidget* rightBottomWidget = new AlertLogWidget(this);
 
     verticalRightSplitter->addWidget(rightTopWidget);
@@ -48,8 +49,8 @@ PrimaryWindow::PrimaryWindow()
     this->setCentralWidget(horizontalSplitter);
 
 
-    bool releaseFlag = false;
-    if(releaseFlag){
+    bool release = false;
+    if(release){
         this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
     }
 

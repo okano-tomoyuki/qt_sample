@@ -7,7 +7,7 @@
 
 using namespace HMI;
 
-AlertLogWidget::AlertLogWidget(QWidget* parent)
+AlertLogWidget::AlertLogWidget(QWidget* parent) 
 {
     QPalette pal = palette();
     pal.setColor(QPalette::Window, Qt::black);
@@ -22,9 +22,11 @@ AlertLogWidget::AlertLogWidget(QWidget* parent)
 
     QVBoxLayout* vTableBox = new QVBoxLayout(this);
     QTableWidget* table = new QTableWidget(10,4,this);
-    table->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    table->setHorizontalHeaderLabels({"","Code","Description","Alert date and time"});
+    // table->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    // table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    table->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    table->horizontalHeader()->setStretchLastSection(true);
+    table->setHorizontalHeaderLabels({"No.","Code","Date & Time","Description"});
     table->verticalHeader()->hide();
     table->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     
