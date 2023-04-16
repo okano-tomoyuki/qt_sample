@@ -4,6 +4,12 @@
 #include <QTableWidget>
 #include <QHeaderView>
 #include <QLabel>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <QString>
+#include <QDateTime>
+#include <QLineEdit>
+#include <QCoreApplication>
 
 using namespace HMI;
 
@@ -14,24 +20,33 @@ AlertLogWidget::AlertLogWidget(QWidget* parent)
     this->setAutoFillBackground(true);
     this->setPalette(pal);
 
-    QVBoxLayout* vBoxlay = new QVBoxLayout(this);
+    auto vBoxlay = new QVBoxLayout(this);
     vBoxlay->setContentsMargins(0,0,0,0);
 
-    QLabel* title = new QLabel("Alert Log",this);
+    auto title = new QLabel("Alert Log",this);
     title->setObjectName("Title");
 
-    QVBoxLayout* vTableBox = new QVBoxLayout(this);
-    QTableWidget* table = new QTableWidget(10,4,this);
+    auto vTableBox = new QVBoxLayout(this);
+
+    auto res = findAlert();
+    auto table = new QTableWidget(res.size(), res[0].size() + 1,this);
     // table->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     // table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     table->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     table->horizontalHeader()->setStretchLastSection(true);
-    table->setHorizontalHeaderLabels({"No.","Code","Date & Time","Description"});
+    table->setHorizontalHeaderLabels({"","Code","Date & Time","Description"});
     table->verticalHeader()->hide();
     table->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-    
-    QPushButton* click = new QPushButton("Detail");
-    table->setCellWidget(0,0,click);
+
+    for (int i=0; i<res.size(); i++){
+        auto btn = new QPushButton("Detail");
+        btn->setIcon(style()->standardIcon(QStyle::SP_ArrowRight));
+        table->setCellWidget(i, 0, btn);
+        table->setItem(i, 1, new QTableWidgetItem(res[i][0]));
+        table->setItem(i, 2, new QTableWidgetItem(res[i][1]));
+        table->setItem(i, 3, new QTableWidgetItem(res[i][2]));
+        
+    }
 
     vBoxlay->addWidget(title);
     vBoxlay->addWidget(table);
@@ -44,30 +59,15 @@ AlertLogWidget::AlertLogWidget(QWidget* parent)
             "padding:4px;"
         "}"
         "QTableWidget {"
+            "margin:5px;"
             "background-color:white;"
-            "margin:20px;"
+            "color:black;"
+            "font-size:14px;"
         "}"
-        "QHeaderView::section {"
+        "QHeaderView:section {"
             "background-color:darkBlue;"
             "color:white;"
             "font-size:18px;"
-        "}"
-        "QPushButton {"
-            "margin:5px;"
-            "color:white;"
-            "background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 cyan, stop:1 blue);"
-            "border-radius:5px;"
-            "font-size:14px;"
-            "width:20px;"
-            "height:30px;"
-            "padding:2px;"
-        "}"
-        "QPushButton:hover {"
-            "color:black;"
-            "background-color:white;"
-        "}"
-        "QPushButton:pressed {"
-            "background-color:white;"
         "}"
     );
 }
@@ -75,4 +75,27 @@ AlertLogWidget::AlertLogWidget(QWidget* parent)
 AlertLogWidget::~AlertLogWidget()
 {
 
+}
+
+QList<QList<QString>> AlertLogWidget::findAlert()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("data.sql");
+    db.open();  
+    QSqlQuery query(db);
+    query.exec("select code, created_at, description from alert_log;");
+
+    QList<QList<QString>> result;
+    while(query.next()){
+        result.append(
+            {
+                query.value(0).toString(), 
+                query.value(1).toString(),
+                query.value(2).toString()
+            }
+        );
+    }
+    db.close();
+
+    return result;
 }

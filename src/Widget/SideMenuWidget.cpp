@@ -73,6 +73,22 @@ SideMenuWidget::SideMenuWidget(QWidget* parent)
     ownShipDirectionValue->setReadOnly(true);
     ownShipDirectionValue->setAlignment(Qt::AlignRight);
     auto ownShipDirectionUnitLabel = new QLabel("degree", this);
+    
+
+    auto checkedPixmap = QPixmap("images/check.png").scaled(24, 24);
+    auto deniedPixmap = QPixmap("images/deny.png").scaled(24, 24);
+    
+    auto gnssLabel = new QLabel("GNSS");
+    gnssLabel->setPixmap(checkedPixmap);
+    gnssLabel->setAlignment(Qt::AlignRight);
+    gnssLabel->setObjectName("gnssLabel");
+
+    auto propellerLabel = new QLabel("Left Propeller");
+    propellerLabel->setPixmap(deniedPixmap);
+    propellerLabel->setAlignment(Qt::AlignRight);
+    propellerLabel->setObjectName("propellerLabel");
+
+
     ownShipInfoGroupBox->setObjectName("OwnShipInfo");
     ownShipInfoLayout->addWidget(ownShipVelocityLabel, 0, 0);
     ownShipInfoLayout->addWidget(ownShipVelocityValue, 0, 1);
@@ -80,6 +96,8 @@ SideMenuWidget::SideMenuWidget(QWidget* parent)
     ownShipInfoLayout->addWidget(ownShipDirectionLabel, 1, 0);
     ownShipInfoLayout->addWidget(ownShipDirectionValue, 1, 1);
     ownShipInfoLayout->addWidget(ownShipDirectionUnitLabel, 1, 2);
+    ownShipInfoLayout->addWidget(gnssLabel, 4, 0);
+    ownShipInfoLayout->addWidget(propellerLabel, 5, 0);
 
 
     /** Disturb Info items are defined below. */
@@ -129,6 +147,9 @@ SideMenuWidget::SideMenuWidget(QWidget* parent)
         "QLabel {"
             "color:white;"
             "font-size:18px;"
+        "}"
+        "QLabel#gnssLabel {"
+            "background-color:black;"
         "}"
         "QLineEdit {"
             "color:white;"

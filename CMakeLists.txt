@@ -12,8 +12,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Gui)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Gui)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Gui Sql)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Gui Sql)
 
 set(CMAKE_AUTOUIC_SEARCH_PATHS view/)
 set(AUTOMOC_PATH_PREFIX ON)
@@ -38,7 +38,8 @@ target_include_directories(sample PRIVATE "${PROJECT_SOURCE_DIR}/include")
 target_link_libraries(sample 
     PRIVATE 
         Qt${QT_VERSION_MAJOR}::Widgets 
-        Qt${QT_VERSION_MAJOR}::Core 
+        Qt${QT_VERSION_MAJOR}::Core
+        Qt${QT_VERSION_MAJOR}::Sql
 
 )
 

@@ -13,6 +13,7 @@
 #define ALERT_LOG_WIDGET_HPP
 
 #include <QWidget>
+#include <QString>
 
 namespace HMI
 {
@@ -28,6 +29,9 @@ class AlertLogWidget : public QWidget
 public:
     AlertLogWidget(QWidget* parent);
     ~AlertLogWidget();
+
+    QList<QList<QString>> findAlert();
+    
 };
 
 }
