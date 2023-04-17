@@ -10,6 +10,8 @@
 #include <QDateTime>
 #include <QLineEdit>
 #include <QCoreApplication>
+#include <QToolBar>
+#include <QAction>
 
 using namespace HMI;
 
@@ -23,8 +25,13 @@ AlertLogWidget::AlertLogWidget(QWidget* parent)
     auto vBoxlay = new QVBoxLayout(this);
     vBoxlay->setContentsMargins(0,0,0,0);
 
-    auto title = new QLabel("Alert Log",this);
+    /** Tool Bar Definition.*/
+    auto alertLogToolBar = new QToolBar("AlertLog", this);
+    auto title = new QLabel("Alert Log Info", this);
     title->setObjectName("Title");
+    alertLogToolBar->addWidget(title);
+    alertLogToolBar->addAction(new QAction("Switch", this));
+    alertLogToolBar->addAction(new QAction("Config", this));
 
     auto vTableBox = new QVBoxLayout(this);
 
@@ -32,6 +39,7 @@ AlertLogWidget::AlertLogWidget(QWidget* parent)
     auto table = new QTableWidget(res.size(), res[0].size() + 1,this);
     // table->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     // table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    table->setFixedHeight(300);
     table->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     table->horizontalHeader()->setStretchLastSection(true);
     table->setHorizontalHeaderLabels({"","Code","Date & Time","Description"});
@@ -48,7 +56,7 @@ AlertLogWidget::AlertLogWidget(QWidget* parent)
         
     }
 
-    vBoxlay->addWidget(title);
+    vBoxlay->addWidget(alertLogToolBar);
     vBoxlay->addWidget(table);
     vBoxlay->addStretch();
     this->setStyleSheet(
@@ -58,11 +66,34 @@ AlertLogWidget::AlertLogWidget(QWidget* parent)
             "font-size:36px;"
             "padding:4px;"
         "}"
-        "QTableWidget {"
-            "margin:5px;"
-            "background-color:white;"
+        "QToolBar {"
+            "background-color:darkblue;"
+            "color:white;"
+            "font-size:36px;"
+            "padding:4px;"
+        "}"
+        "QToolButton {"
+            "background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 aliceblue, stop:1 deepskyblue);"
+            "border-radius:5px;"
             "color:black;"
+            "font-size:18px;"
+            "padding:4px;"
+            "margin:5px;"
+        "}"
+        "QToolButton::hover {"
+            "color:black;"
+            "background-color:white;"
+        "}"
+        "QTableWidget {"
+            "margin:15px;"
+            "background-color:black;"
+            "color:white;"
             "font-size:14px;"
+        "}"
+        "QTableWidget::item {"
+            "border-style:solid;"
+            "border-width:1px;"
+            "border-color:darkgray;"
         "}"
         "QHeaderView:section {"
             "background-color:darkBlue;"

@@ -2,6 +2,7 @@
 #include <QBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QToolBar>
 
 using namespace HMI;
 
@@ -12,28 +13,45 @@ ActuatorWidget::ActuatorWidget(QWidget* parent)
     this->setAutoFillBackground(true);
     this->setPalette(pal);
 
-    QVBoxLayout* vBoxlay = new QVBoxLayout(this);
+    auto vBoxlay = new QVBoxLayout(this);
     vBoxlay->setContentsMargins(0,0,0,0);
 
-    QLabel* title = new QLabel("Actuator Info",this);
+    /** Tool Bar Definition.*/
+    auto actuatorToolBar = new QToolBar("Actuator", this);
+    auto title = new QLabel("Actuator Info", this);
     title->setObjectName("Title");
-    QPushButton* okButton = new QPushButton("OK", this);
-    QPushButton* cancelButton = new QPushButton("Cancel", this);
+    actuatorToolBar->addWidget(title);
+    actuatorToolBar->addAction(new QAction("Switch", this));
+    actuatorToolBar->addAction(new QAction("Config", this));
 
-    QHBoxLayout* okCancel = new QHBoxLayout();
-    okCancel->addWidget(okButton);
-    okCancel->addWidget(cancelButton);
-    okCancel->addStretch();
-
-    vBoxlay->addWidget(title);
-    vBoxlay->addLayout(okCancel);
+    // vBoxlay->addWidget(title);
+    vBoxlay->addWidget(actuatorToolBar);
     vBoxlay->addStretch();
+
     this->setStyleSheet(
         "QLabel#Title {"
             "background-color:darkblue;"
             "color:white;"
             "font-size:36px;"
             "padding:4px;"
+        "}"
+        "QToolBar {"
+            "background-color:darkblue;"
+            "color:white;"
+            "font-size:36px;"
+            "padding:4px;"
+        "}"
+        "QToolButton {"
+            "background:qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0 aliceblue, stop:1 deepskyblue);"
+            "border-radius:5px;"
+            "color:black;"
+            "font-size:18px;"
+            "padding:4px;"
+            "margin:5px;"
+        "}"
+        "QToolButton::hover {"
+            "color:black;"
+            "background-color:white;"
         "}"
         "QPushButton {"
             "margin:5px;"
@@ -45,11 +63,11 @@ ActuatorWidget::ActuatorWidget(QWidget* parent)
             "height:30px;"
             "padding:2px;"
         "}"
-        "QPushButton:hover {"
+        "QPushButton::hover {"
             "color:black;"
             "background-color:white;"
         "}"
-        "QPushButton:pressed {"
+        "QPushButton::pressed {"
             "background-color:white;"
         "}"
     );
