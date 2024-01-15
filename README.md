@@ -9,7 +9,7 @@ MinGW(Minimalist GNU for Windows)はWindowsにおけるGNU開発環境のこと�
 
 MinGW自体はパッケージ管理の機能を備えていないため、MSYS2(Minimal System2)を使用しMinGWのパッケージ管理を行う。MSYS2はArchLinuxライクなシェル環境を提供しており、パッケージ管理もpacmanを使うと容易である。
 
-競合先としてCygWin(Cygnus for Windows)があるが、パッケージ管理ツールの使い勝手が悪く、パス体系も独特との意見があったためMSYS2を採用した。
+競合先としてCygWin(Cygnus is your gnu support for Windows)があるが、パッケージ管理ツールの使い勝手が悪く、パス体系も独特との意見があったためMSYS2を採用した。
 
 下記から64bit版インストーラーをダウンロードしてインストールした。
 (インストール先ディレクトリはC:\tool\msys64)
